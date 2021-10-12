@@ -36,14 +36,22 @@ const forecast = (lat, long, callback) => {
 			const description = data.weather_descriptions[0];
 			const precip = data.precip;
 			const temp = data.temperature;
-			const feelsLikeTemp = data.feelslike;
+			const humidity = data.humidity;
+			const wind = {
+				speed: data.wind_speed,
+				direction: data.wind_dir,
+			};
+
+			const fc = `
+				${description}. 
+				The humidity is ${humidity}% and the current temperature is ${temp}°F. 
+				There is a ${precip}% chance of rain. 
+				${wind.speed > 0 && `Wind speed is ${wind.speed} mph coming from the ${wind.direction} direction.`}
+			`;
 
 			// Return data mapping
 			callback(undefined, {
-				description,
-				precip,
-				temp,
-				feelsLikeTemp,
+				fc,
 			});
 		}
 	});
