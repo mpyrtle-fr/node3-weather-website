@@ -79,24 +79,6 @@ app.get('/weather', (req, res) => {
 			});
 		}
 	});
-
-	// res.send({
-	// 	forecast: 'NOT IMPLEMENTED',
-	// 	location: 'Winston Salem',
-	// 	address: req.query.address,
-	// });
-});
-
-app.get('/products', (req, res) => {
-	if (!req.query.search) {
-		return res.send({
-			error: 'You must provide a search term.',
-		});
-	}
-
-	res.send({
-		products: [],
-	});
 });
 
 // 404
