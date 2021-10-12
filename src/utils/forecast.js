@@ -46,7 +46,7 @@ const forecast = (lat, long, callback) => {
 				${description}. 
 				The humidity is ${humidity}% and the current temperature is ${temp}°F. 
 				There is a ${precip}% chance of rain. 
-				${wind.speed > 0 && `Wind speed is ${wind.speed} mph coming from the ${wind.direction} direction.`}
+				${wind.speed === 0 ? '' : `Wind speed is ${wind.speed} mph coming from the ${wind.direction} direction.`}
 			`;
 
 			// Return data mapping
